@@ -1,0 +1,8 @@
+<template name="monthCalendar">
+  <div class="calendar page">
+    <h4>Календарь событий за {{currentMonthName}}</h4>
+    {{#each days}}
+      {{> calendarDay}}
+    {{/each}}
+  </div>
+</template>

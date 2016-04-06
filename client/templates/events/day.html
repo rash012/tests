@@ -1,0 +1,8 @@
+<template name='day'>
+  <div class="calendar page">
+    <h4>События на {{date}}</h4>
+    {{#each events}}
+      {{> event}}
+    {{/each}}
+  </div>
+</template>
