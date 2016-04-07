@@ -1,12 +1,22 @@
 <template name='_event'>
-    <div class="events__event col-sm-4 col-md-3">
-        <a href="{{pathFor 'event'}}" class="event__wrap link-non-decor">
-            <div class="event__content"></div>
-            <div class="event__bottom">
-                <div class="">Название: {{eventName}}</div>
-                <div class="">Тип: {{type}}</div>
-                <div class="">Организатор: {{username}}</div>
-            </div>
-        </a>
-    </div>
+    <a href="{{pathFor 'event'}}" class="block event__wrap link-non-decor">
+        <div class="block__content">
+            <span class="">Название: {{eventName}}</span>
+            <span class="">Тип: {{type}}</span>
+            <span class="">Описание: {{description}}</span>
+            <span class="">Организатор: {{username}}</span>
+            <span class="">Дата: {{formatDateToLocal date}}</span>
+            <span class="">Время начала: {{begin}}</span>
+            <span class="">Время окончания: {{end}}</span>
+            <br>
+            <br>
+            {{#unless isMyEvent _id}}
+                {{#if isOrderSubmitted}}
+                    <input type="submit" value="Отменить заявку" class="btn btn-danger" id="cancel-order"/>
+                {{else}}
+                    <input type="submit" value="Подать заявку" class="btn btn-primary" id="submit-order"/>
+                {{/if}}
+            {{/unless}}
+        </div>
+    </a>
 </template>

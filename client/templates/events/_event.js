@@ -1,10 +1,10 @@
-Template.event.helpers({
+Template._event.helpers({
     isOrderSubmitted: function () {
         var orderId = Orders.findOne({userId: Meteor.userId(), eventId: this._id});
         return !!orderId;
     }
 });
-Template.event.events({
+Template._event.events({
     'click #submit-order': function (e) {
         e.preventDefault();
 
@@ -13,6 +13,7 @@ Template.event.events({
                 return throwError(error.reason);
             }
             if (result) {
+                if (result.isMyEvent) alert('Вы не можете подать заявку на свое событие');
                 if (result.orderExists) alert('Заявка на это событие уже подана');
                 //else alert('Заявка успешно подана');
             }

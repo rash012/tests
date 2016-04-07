@@ -12,7 +12,10 @@ Template._day.helpers({
     year: function () {
         return getYear();
     },
-    events:function(){
-        return Events.find({date: formatDateToIso(getYear(),getMonth(),this.day)},{sort:{begin:1}});
-    },
+    //events:function(){
+    //    return Events.find({date: formatDateToIso(getYear(),getMonth(),this.day)},{sort:{begin:1}});
+    //},
+    eventsCount: function(){
+        return Events.find({date: formatDateToIso(getYear(),getMonth(),this.day)}).count();
+    }
 });

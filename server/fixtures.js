@@ -1,24 +1,83 @@
 Meteor.startup(function () {
-  if (Events.find().count() === 0) {
-    Events.insert({
-      eventName:'пенная вечеринка',
-      type:'вечеринка',
-      date:'2016-04-15',
-      begin: '01:10'
-    });
-    Events.insert({
-      eventName:'пенная вечеринка2',
-      type:'вечеринка',
-      date:'2016-04-15',
-      begin: '01:00'
-    });
-  }
-  if (Meteor.users.find().count() === 0) {
-    Accounts.createUser({
-      username: 'test',
-      email: 'test@test.ru',
-      password: ' ',
-    });
-  }
+    if (Events.find().count() === 0) {
+        Events.insert({
+            begin: "01:01",
+            date: "2016-04-01",
+            description: "aaa",
+            end: "01:01",
+            eventName: "aaaaaaaa",
+            submitted: new Date,
+            type: "aaaa",
+            userId: "0",
+            username: "test3"
+        });
+        Events.insert({
+            begin: "01:02",
+            date: "2016-04-01",
+            description: "aaa",
+            end: "01:01",
+            eventName: "aaaaaaaa",
+            submitted: new Date,
+            type: "aaaa",
+            userId: "0",
+            username: "test3"
+        });
+        Events.insert({
+            begin: "01:00",
+            date: "2016-04-01",
+            description: "aaa",
+            end: "01:01",
+            eventName: "aaaaaaaa",
+            submitted: new Date,
+            type: "aaaa",
+            userId: "0",
+            username: "test3"
+        });
+        Events.insert({
+            begin: "01:02",
+            date: "2016-04-02",
+            description: "aaa",
+            end: "01:01",
+            eventName: "aaaaaaaa",
+            submitted: new Date,
+            type: "aaaa",
+            userId: "0",
+            username: "test3"
+        });
+        Events.insert({
+            begin: "01:01",
+            date: "2016-04-02",
+            description: "aaa",
+            end: "01:01",
+            eventName: "aaaaaaaa",
+            submitted: new Date,
+            type: "aaaa",
+            userId: "0",
+            username: "test3"
+        });
+        Events.insert({
+            begin: "01:02",
+            date: "2016-04-03",
+            description: "aaa",
+            end: "01:01",
+            eventName: "aaaaaaaa",
+            submitted: new Date,
+            type: "aaaa",
+            userId: "0",
+            username: "test3"
+        });
+    }
+    if (Meteor.users.find().count() === 0) {
+        Accounts.createUser({
+            username: 'test',
+            email: 'test@test.ru',
+            password: ' ',
+        });
+        Accounts.createUser({
+            username: 'test1',
+            email: 'test1@test.ru',
+            password: ' ',
+        });
+    }
 });
 
