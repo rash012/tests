@@ -1,0 +1,44 @@
+<template name='createEvent'>
+    <div class="page">
+        <h4>Создание события</h4>
+        <form class="main form">
+            <div class="form-group">
+                <label class="control-label" for="event-name">Название события</label>
+                <div class="controls">
+                    <input name="event-name" id="event-name" type="text" value="" placeholder="" class="form-control" required autocomplete="off"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="type">Тип события</label>
+                <div class="controls">
+                    <input name="type" id="type" type="text" value="" placeholder="" class="form-control" required autocomplete="off"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="description">Описание события</label>
+                <div class="controls">
+                    <textarea name="description" id="description" placeholder="" class="form-control" required></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="date">Дата события</label>
+                <div class="controls">
+                    <input name="date" id="date" type="date" value="" placeholder="" class="form-control" required autocomplete="off"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="begin">Время начала события</label>
+                <div class="controls">
+                    <input name="begin" id="begin" type="time" value="" placeholder="" class="form-control" required autocomplete="off"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="end">Время окончания события</label>
+                <div class="controls">
+                    <input name="end" id="end" type="time" value="" placeholder="" class="form-control" required autocomplete="off"/>
+                </div>
+            </div>
+            <input type="submit" value="Создать событие" class="btn btn-primary"/>
+        </form>
+    </div>
+</template>

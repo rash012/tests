@@ -1,8 +1,13 @@
 <template name="monthCalendar">
-  <div class="calendar page">
-    <h4>Календарь событий за {{currentMonthName}}</h4>
-    {{#each days}}
-      {{> calendarDay}}
-    {{/each}}
-  </div>
+    <div class="calendar page">
+        <h4>Календарь событий за {{monthName}}</h4>
+        <div>
+            <a href="{{pathFor 'monthCalendar' month=previousMonthYear.month year=previousMonthYear.year}}">Предыдущий месяц</a>
+            <a href="{{pathFor 'monthCalendar' month=nextMonthYear.month year=nextMonthYear.year}}">Следующий месяц</a>
+        </div>
+        <br>
+        {{#each days}}
+            {{> _day}}
+        {{/each}}
+    </div>
 </template>

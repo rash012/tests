@@ -1,0 +1,12 @@
+<template name='_event'>
+    <div class="events__event col-sm-4 col-md-3">
+        <a href="{{pathFor 'event'}}" class="event__wrap link-non-decor">
+            <div class="event__content"></div>
+            <div class="event__bottom">
+                <div class="">Название: {{eventName}}</div>
+                <div class="">Тип: {{type}}</div>
+                <div class="">Организатор: {{username}}</div>
+            </div>
+        </a>
+    </div>
+</template>

@@ -1,0 +1,15 @@
+<template name='_day'>
+    <div class="calendar__day col-sm-4 col-md-3">
+        <a href="{{pathFor 'day' year=year month=month day=day}}" class="calendar-day__wrap link-non-decor">
+            <div class="calendar-day__content">
+                {{date}}
+                {{#each event in events}}
+                    <div class="day-content__line">
+                        {{event.eventName}} в {{event.begin}}
+                    </div>
+                {{/each}}
+            </div>
+            <div class="day__bottom">{{day}}</div>
+        </a>
+    </div>
+</template>
