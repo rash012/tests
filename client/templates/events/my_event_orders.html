@@ -1,0 +1,8 @@
+<template name="myEventOrders">
+    <div class="page">
+        <h4>Поданные заявки</h4>
+        {{#each orders}}
+            {{>_order_event}}
+        {{/each}}
+    </div>
+</template>

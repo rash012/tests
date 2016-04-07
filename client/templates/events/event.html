@@ -1,7 +1,17 @@
 <template name='event'>
     <div class="event">
-        <div class="">Название: {{name}}</div>
+        <div class="">Название: {{eventName}}</div>
         <div class="">Тип: {{type}}</div>
-        <div class="">Организатор: </div>
+        <div class="">Описание: {{description}}</div>
+        <div class="">Организатор: {{username}}</div>
+        <div class="">Дата: {{formatDateToLocal date}}</div>
+        <div class="">Время начала: {{begin}}</div>
+        <div class="">Время окончания: {{end}}</div>
+        <br>
+        {{#if isOrderSubmitted}}
+            <input type="submit" value="Отменить заявку" class="btn btn-danger" id="cancel-order"/>
+        {{else}}
+            <input type="submit" value="Подать заявку" class="btn btn-primary" id="submit-order"/>
+        {{/if}}
     </div>
 </template>

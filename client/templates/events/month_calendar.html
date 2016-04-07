@@ -1,6 +1,6 @@
 <template name="monthCalendar">
     <div class="calendar page">
-        <h4>Календарь событий за {{monthName}}</h4>
+        <h4>Календарь событий за {{monthName}} {{year}} года</h4>
         <div>
             <a href="{{pathFor 'monthCalendar' month=previousMonthYear.month year=previousMonthYear.year}}">Предыдущий месяц</a>
             <a href="{{pathFor 'monthCalendar' month=nextMonthYear.month year=nextMonthYear.year}}">Следующий месяц</a>
