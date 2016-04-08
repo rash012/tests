@@ -5,3 +5,7 @@ Meteor.publish('events', function () {
 Meteor.publish('orders', function () {
   return Orders.find();
 });
+
+Meteor.publish('users', function () {
+  return Meteor.users.find();
+});

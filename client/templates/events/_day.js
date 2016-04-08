@@ -17,5 +17,10 @@ Template._day.helpers({
     //},
     eventsCount: function(){
         return Events.find({date: formatDateToIso(getYear(),getMonth(),this.day)}).count();
+    },
+    todayClass: function(){
+        if(this.day  == getCurrentDateDay() && getMonth() == getCurrentMonth() && getYear() == getCurrentYear()){
+            return 'today';
+        }else return '';
     }
 });

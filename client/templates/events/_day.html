@@ -1,6 +1,6 @@
 <template name='_day'>
     <div class="calendar-day col-sm-4 col-md-3">
-        <a href="{{pathFor 'day' year=year month=month day=day}}" class="block link-non-decor">
+        <a href="{{pathFor 'day' year=year month=month day=day}}" class="block link-non-decor {{todayClass}}">
             <div class="calendar-day__content">
                 <div class="day-content__line">{{day}} {{monthWithEnding month}}</div>
                 <div class="day-content__line">{{eventsCount}} {{wordWithEnding 'event' eventsCount}}</div>

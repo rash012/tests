@@ -2,6 +2,12 @@ Template._event.helpers({
     isOrderSubmitted: function () {
         var orderId = Orders.findOne({userId: Meteor.userId(), eventId: this._id});
         return !!orderId;
+    },
+    ordersCount: function(){
+        return Orders.find({eventId:this._id}).count();
+    },
+    ordersAcceptedCount: function(){
+        return Orders.find({eventId:this._id, isAccepted:1}).count();
     }
 });
 Template._event.events({

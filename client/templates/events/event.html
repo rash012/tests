@@ -1,4 +1,8 @@
 <template name='event'>
     <h4>Событие {{eventName}}</h4>
     {{> _event}}
+
+    {{#if isMyEvent _id}}
+        {{>_usersSubmitted}}
+    {{/if}}
 </template>
