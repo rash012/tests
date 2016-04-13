@@ -11,12 +11,19 @@ Template._event.helpers({
     ordersRejectedCount: function () {
         return Meteor.users.find({eventOrders: {$elemMatch: {eventId: this._id, orderStatus: orderStatuses.rejected}}}).count();
     },
+    ordersExpectsCount: function () {
+        return Meteor.users.find({eventOrders: {$elemMatch: {eventId: this._id, orderStatus: orderStatuses.expects}}}).count();
+    },
 });
 Template._event.events({
     'click #submit-order': function (e) {
         e.preventDefault();
 
-        Meteor.call('insertOrder', this._id, function (error, result) {
+        var event = {
+            _id: this._id,
+            name: this.eventName
+        };
+        Meteor.call('insertOrder', event, function (error, result) {
             if (error) {
                 return throwError(error.reason);
             }
