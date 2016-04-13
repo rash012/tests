@@ -8,8 +8,7 @@ Meteor.startup(function () {
             eventName: "aaaaaaaa",
             submitted: new Date,
             type: "aaaa",
-            userId: "0",
-            username: "test5"
+            owner: {_id: '0', name: 'test8'},
         });
         Events.insert({
             begin: "01:02",
@@ -19,8 +18,7 @@ Meteor.startup(function () {
             eventName: "aaaaaaaa",
             submitted: new Date,
             type: "aaaa",
-            userId: "0",
-            username: "test5"
+            owner: {_id: '0', name: 'test8'},
         });
         Events.insert({
             begin: "01:00",
@@ -30,8 +28,7 @@ Meteor.startup(function () {
             eventName: "aaaaaaaa",
             submitted: new Date,
             type: "aaaa",
-            userId: "0",
-            username: "test5"
+            owner: {_id: '0', name: 'test8'},
         });
         Events.insert({
             begin: "01:02",
@@ -41,8 +38,7 @@ Meteor.startup(function () {
             eventName: "aaaaaaaa",
             submitted: new Date,
             type: "aaaa",
-            userId: "0",
-            username: "test5"
+            owner: {_id: '0', name: 'test8'},
         });
         Events.insert({
             begin: "01:01",
@@ -52,8 +48,7 @@ Meteor.startup(function () {
             eventName: "aaaaaaaa",
             submitted: new Date,
             type: "aaaa",
-            userId: "0",
-            username: "test5"
+            owner: {_id: '0', name: 'test8'},
         });
         Events.insert({
             begin: "01:02",
@@ -63,8 +58,7 @@ Meteor.startup(function () {
             eventName: "aaaaaaaa",
             submitted: new Date,
             type: "aaaa",
-            userId: "0",
-            username: "test5"
+            owner: {_id: '0', name: 'test8'},
         });
     }
     if (Meteor.users.find().count() === 0) {

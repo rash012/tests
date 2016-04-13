@@ -19,7 +19,8 @@ Template.createEvent.events({
             }
             if (result) {
                 alert('Событие успешно добавлено');
-                $('form').trigger('reset');
+                //$('form').trigger('reset');
+                Router.go('event',{_id:result._id});
             }
         });
     }

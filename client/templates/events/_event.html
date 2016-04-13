@@ -4,21 +4,24 @@
             <span class="">Название: {{eventName}}</span>
             <span class="">Тип: {{type}}</span>
             <span class="">Описание: {{description}}</span>
-            <span class="">Организатор: <a href="{{pathFor 'userPage'}}">{{username}}</a></span>
+            <span class="">Организатор: <a href="{{pathFor 'userPage' username=owner.name}}">{{owner.name}}</a></span>
             <span class="">Дата: {{formatDateToLocal date}}</span>
             <span class="">Время начала: {{begin}}</span>
             <span class="">Время окончания: {{end}}</span>
             <span class="">Заявок подано: {{ordersCount}}</span>
             <span class="">Заявок принято: {{ordersAcceptedCount}}</span>
+            <span class="">Заявок отклонено: {{ordersRejectedCount}}</span>
             <br>
             <br>
-            {{#unless isMyEvent _id}}
-                {{#if isOrderSubmitted}}
-                    <input type="submit" value="Отменить заявку" class="btn btn-danger" id="cancel-order"/>
-                {{else}}
-                    <input type="submit" value="Подать заявку" class="btn btn-primary" id="submit-order"/>
-                {{/if}}
-            {{/unless}}
+            {{#if currentUser}}
+                {{#unless isMyEvent _id}}
+                    {{#if isOrderSubmitted}}
+                        <input type="submit" value="Отменить заявку" class="btn btn-danger" id="cancel-order"/>
+                    {{else}}
+                        <input type="submit" value="Подать заявку" class="btn btn-primary" id="submit-order"/>
+                    {{/if}}
+                {{/unless}}
+            {{/if}}
         </div>
     </a>
 </template>

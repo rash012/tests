@@ -1,14 +1,16 @@
 Template._event.helpers({
     isOrderSubmitted: function () {
-        var orderId = Orders.findOne({userId: Meteor.userId(), eventId: this._id});
-        return !!orderId;
+        return !!Meteor.users.findOne({_id: Meteor.userId(), eventOrders: {$elemMatch: {eventId: this._id}}});
     },
-    ordersCount: function(){
-        return Orders.find({eventId:this._id}).count();
+    ordersCount: function () {
+        return Meteor.users.find({eventOrders: {$elemMatch: {eventId: this._id}}}).count();
     },
-    ordersAcceptedCount: function(){
-        return Orders.find({eventId:this._id, isAccepted:1}).count();
-    }
+    ordersAcceptedCount: function () {
+        return Meteor.users.find({eventOrders: {$elemMatch: {eventId: this._id, orderStatus: orderStatuses.accepted}}}).count();
+    },
+    ordersRejectedCount: function () {
+        return Meteor.users.find({eventOrders: {$elemMatch: {eventId: this._id, orderStatus: orderStatuses.rejected}}}).count();
+    },
 });
 Template._event.events({
     'click #submit-order': function (e) {
