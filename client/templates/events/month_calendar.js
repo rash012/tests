@@ -1,3 +1,16 @@
+// var type= ReactiveVar();
+
+Template.monthCalendar.events({
+    'change #type': function () {
+        var type = $('#type option:selected').val();
+        var month = Router.current().params.month;
+        var year = Router.current().params.year;
+
+        if (type) Router.go('monthCalendar', {year: year, month: month}, {query: 'type=' + type});
+        else Router.go('monthCalendar', {year: year, month: month});
+    }
+});
+
 Template.monthCalendar.helpers({
     currentMonthName: function () {
         return getMonthNameByNumber(getCurrentMonth());
@@ -20,5 +33,15 @@ Template.monthCalendar.helpers({
     },
     previousMonthYear: function () {
         return previousMonthYear(this.month, this.year);
+    },
+    select: function (type) {
+        if (_.contains(getTypesFromQuery(), type)) {
+            return 'selected';
+        }
+        return '';
     }
 });
+
+Template.monthCalendar.destroyed = function () {
+    //status.set('все');
+};

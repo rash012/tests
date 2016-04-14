@@ -25,3 +25,4 @@ Template.createEvent.events({
         });
     }
 });
+

@@ -1,10 +1,21 @@
 <template name='_day'>
     <div class="calendar-day col-sm-4 col-md-3">
-        <a href="{{pathFor 'day' year=year month=month day=day}}" class="block link-non-decor {{todayClass}}">
-            <div class="calendar-day__content">
-                <div class="day-content__line">{{day}} {{monthWithEnding month}}</div>
-                <div class="day-content__line">{{eventsCount}} {{wordWithEnding 'event' eventsCount}}</div>
+        {{#if eventsCount}}
+            <a href="{{pathFor 'day' year=year month=month day=day query=getQueryTypes}}" class="block link-non-decor has-events {{todayClass}}">
+                {{> _day_content}}
+            </a>
+        {{else}}
+            <div class="block {{todayClass}}">
+                {{> _day_content}}
             </div>
-        </a>
+        {{/if}}
+    </div>
+</template>
+
+<template name="_day_content">
+    <div class="calendar-day__content">
+        <div class="day-content__line">{{day}} {{monthWithEnding month}}</div>
+        <div class="day-content__line">{{weekday}}</div>
+        <div class="day-content__line">{{eventsCount}} {{wordWithEnding 'event' eventsCount}}</div>
     </div>
 </template>

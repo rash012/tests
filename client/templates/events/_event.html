@@ -1,6 +1,9 @@
 <template name='_event'>
     <a href="{{pathFor 'event'}}" class="block event__wrap link-non-decor">
         <div class="block__content">
+            {{#if isMyEvent _id}}
+                <div><b>мое событие</b></div>
+            {{/if}}
             <span class="">Название: {{eventName}}</span>
             <span class="">Тип: {{type}}</span>
             <span class="">Описание: {{description}}</span>

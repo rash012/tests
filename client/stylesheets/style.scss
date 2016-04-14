@@ -30,6 +30,9 @@ $info-bootstrap-color: #d9edf7;
     color: inherit;
   }
 }
+.has-events{
+  background-color: aliceblue;
+}
 
 h5 {
   font-size: 16px;
@@ -269,4 +272,11 @@ body {
 }
 .today{
   background-color: $info-bootstrap-color;
+}
+
+.filter{
+  &__input{
+    display: inline-block;
+    width:auto;
+  }
 }

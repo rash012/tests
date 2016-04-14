@@ -1,11 +1,11 @@
-var getMonth = function(){
+var getMonth = function () {
     return Template.parentData().month;
 };
-var getYear = function(){
+var getYear = function () {
     return Template.parentData().year;
 };
 
-Template._day.helpers({
+_dayHelpers = {
     month: function () {
         return getMonth();
     },
@@ -15,12 +15,26 @@ Template._day.helpers({
     //events:function(){
     //    return Events.find({date: formatDateToIso(getYear(),getMonth(),this.day)},{sort:{begin:1}});
     //},
-    eventsCount: function(){
-        return Events.find({date: formatDateToIso(getYear(),getMonth(),this.day)}).count();
+    eventsCount: function () {
+        var types = getTypesFromQuery();
+
+        if (types) {
+            return Events.find({
+                date: formatDateToIso(getYear(), getMonth(), this.day),
+                type: {$in: types}
+            }).count();
+        } else return Events.find({date: formatDateToIso(getYear(), getMonth(), this.day)}).count();
     },
-    todayClass: function(){
-        if(this.day  == getCurrentDateDay() && getMonth() == getCurrentMonth() && getYear() == getCurrentYear()){
+    todayClass: function () {
+        if (this.day == getCurrentDateDay() && getMonth() == getCurrentMonth() && getYear() == getCurrentYear()) {
             return 'today';
-        }else return '';
-    }
-});
+        } else return '';
+    },
+    weekday: function () {
+        var weekDayNumber = new Date(getYear(), getMonth() - 1, this.day).getDay();
+        return weekDays[weekDayNumber];
+    },
+};
+
+Template._day.helpers(_dayHelpers);
+Template._day_content.helpers(_dayHelpers);
