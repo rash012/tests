@@ -3,22 +3,24 @@ Template.monthCalendar.helpers({
         return getMonthNameByNumber(getCurrentMonth());
     },
     monthName: function () {
-        return getMonthNameByNumber(this.month);
+        return getMonthNameByNumber(this.monthReal);
     },
     currentYear: function () {
         return UI._globalHelpers('currentYear');
     },
-    days: function () {
-        var days = [];
-        for (var i = 1; i <= getDaysInMonth(this.month, this.year); i++) {
-            days.push({day: i});
+    dates: function () {
+        var dates = [];
+        var year = this.year;
+        var monthReal = this.monthReal;
+        for (var i = 1; i <= getDaysInMonth(monthReal, year); i++) {
+            dates.push(new Date(year,  monthReal-1, i));
         }
-        return days;
+        return dates;
     },
     nextMonthYear: function () {
-        return nextMonthYear(this.month, this.year);
+        return nextMonthYear(this.monthReal, this.year);
     },
     previousMonthYear: function () {
-        return previousMonthYear(this.month, this.year);
+        return previousMonthYear(this.monthReal, this.year);
     }
 });

@@ -1,16 +1,22 @@
-var getMonth = function () {
-    return Template.parentData().month;
+var getMonthReal = function (context) {
+    return context.getMonth()+1;
 };
-var getYear = function () {
-    return Template.parentData().year;
+var getYear = function (context) {
+    return context.getFullYear();
+};
+var getDate = function (context) {
+    return context.getDate();
 };
 
 _dayHelpers = {
+    day: function () {
+        return getDate(this);
+    },
     month: function () {
-        return getMonth();
+        return getMonthReal(this);
     },
     year: function () {
-        return getYear();
+        return getYear(this);
     },
     //events:function(){
     //    return Events.find({date: formatDateToIso(getYear(),getMonth(),this.day)},{sort:{begin:1}});
@@ -20,18 +26,18 @@ _dayHelpers = {
 
         if (types) {
             return Events.find({
-                date: formatDateToIso(getYear(), getMonth(), this.day),
+                date: formatDateToIso(getYear(this), getMonthReal(this), this.getDate()),
                 type: {$in: types}
             }).count();
-        } else return Events.find({date: formatDateToIso(getYear(), getMonth(), this.day)}).count();
+        } else return Events.find({date: formatDateToIso(getYear(this), getMonthReal(this), this.getDate())}).count();
     },
     todayClass: function () {
-        if (this.day == getCurrentDateDay() && getMonth() == getCurrentMonth() && getYear() == getCurrentYear()) {
+        if (this.getDate() == getCurrentDateDay() && getMonthReal(this) == getCurrentMonth() && getYear(this) == getCurrentYear()) {
             return 'today';
         } else return '';
     },
     weekday: function () {
-        var weekDayNumber = new Date(getYear(), getMonth() - 1, this.day).getDay();
+        var weekDayNumber = new Date(getYear(this), this.getMonth(), this.getDate()).getDay();
         return weekDays[weekDayNumber];
     },
 };

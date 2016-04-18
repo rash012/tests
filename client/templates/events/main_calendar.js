@@ -1,19 +1,14 @@
 var currentMonth = getCurrentMonth();
 var currentYear = getCurrentYear();
 Template.mainCalendar.helpers({
-    days: function () {
-        var days = [];
-        var month = this.month;
+    dates: function () {
+        var dates = [];
+        var month = this.monthReal -1;
         var dayNumber = getCurrentDateDay();
-        var daysInMonth = getDaysInMonth(getCurrentMonth(),getCurrentYear());
         for (var i = 0; i < 14; i++) {
-            days.push({day: dayNumber++});
-            if(dayNumber>daysInMonth) dayNumber = 1;
+            dates.push(new Date(this.year,  month, dayNumber++));
         }
-        return {
-            days:days,
-            month: 1
-        };
+        return dates;
     },
     month:currentMonth,
     year: currentYear
