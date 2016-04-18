@@ -4,8 +4,8 @@
 
     {{#if isMyEvent _id}}
         {{>_usersSubmitted}}
-
-        <a href="{{pathFor 'eventAcceptedOrders'}}">Принятые заявки</a>
-        <a href="{{pathFor 'eventRejectedOrders'}}">Отклонённые заявки</a>
+        <br>
+        <a href="{{pathFor 'eventRejectedOrders'}}">Отклонённые заявки ({{getOrdersCount _id 'rejected'}})</a>
     {{/if}}
+    <a href="{{pathFor 'eventMembers'}}">Список участников ({{getOrdersCount _id 'accepted'}})</a>
 </template>

@@ -1,8 +1,12 @@
 <template name="_usersSubmitted">
     <h5>Ожидающие заявки пользователей</h5>
 
-    {{#each users}}
-        {{> _userSubmitted}}
-    {{/each}}
+    {{#if users}}
+        {{#each users}}
+            {{> _userSubmitted}}
+        {{/each}}
+    {{else}}
+        <div>нет ожидающих заявок</div>
+    {{/if}}
 
 </template>

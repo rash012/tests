@@ -1,0 +1,6 @@
+<template name="eventMembers">
+    <h4>Событие <a href="{{pathFor 'event' _id=eventId}}">{{eventName}}</a> - список участников</h4>
+    {{#each users}}
+        {{> _userSubmitted}}
+    {{/each}}
+</template>

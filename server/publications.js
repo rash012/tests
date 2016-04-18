@@ -2,17 +2,29 @@ Meteor.publish('events', function () {
     return Events.find();
 });
 
-//todo подумать над реализацией заявок в бд
-
 Meteor.publish('users', function () {
     return Meteor.users.find();
 });
 
 Meteor.publish('orders', function () {
-    var currentUserId = this.userId;
-    if (currentUserId) {
-        var myEventIds = usersEventsIds(currentUserId);
-        return Orders.find({$or:[{eventId: {$in: myEventIds}},{userId:currentUserId}]});
-    }
-    else return [];
+    return Orders.find();
 });
+
+//заявки пользователей на событие, создателем которого является текущий пользователь
+// Meteor.publish('organizerUserOrders', function () {
+//     var currentUserId = this.userId;
+//     if (currentUserId) {
+//         var myEventIds = usersCreatedEventsIds(currentUserId);
+//         return Orders.find({$or:[{eventId: {$in: myEventIds}},{userId:currentUserId}]});
+//     }
+//     else return [];
+// });
+
+//заявки участников событий, в которых текущий пользователь также является участником
+// Meteor.publish('eventMembersForMember', function () {
+//     var currentUserId = this.userId;
+//     var memberEventIds = function (currentUserId) {
+//
+//     };
+//     return Orders.find({status: orderStatuses.accepted});
+// });

@@ -1,9 +1,12 @@
 <template name="_userSubmitted">
     <div class="block">
         <span>Ник: <a href="{{pathFor 'userPage' username}}">{{username}}</a></span>
-        {{#if isExpects}}
-            <input type="submit" value="Принять заявку" class="btn btn-primary pull-right" id="accept-order"/>
-            <input type="submit" value="Отклонить заявку" class="btn btn-danger pull-right" id="reject-order"/>
+
+        {{#if isMyEvent getEventIdFromRoute}}
+            {{#if isExpects}}
+                <input type="submit" value="Принять заявку" class="btn btn-primary pull-right" id="accept-order"/>
+                <input type="submit" value="Отклонить заявку" class="btn btn-danger pull-right" id="reject-order"/>
+            {{/if}}
         {{/if}}
     </div>
 </template>

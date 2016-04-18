@@ -6,7 +6,7 @@ UI.registerHelper('currentMonthNumber', function () {
 });
 
 UI.registerHelper('formatDateToLocal', function (date) {
-    return formatToLocalDate.fromIsoString(date);
+    return formatDate.toLocalFromIsoString(date);
 });
 
 UI.registerHelper('wordWithEnding', function (word, count) {
@@ -28,4 +28,17 @@ UI.registerHelper('eventTypes', function () {
 UI.registerHelper('getQueryTypes', function () {
     var types = Router.current().params.query.type;
     if (types) return 'type=' + types;
+});
+
+UI.registerHelper('isEventHappen', function (eventId) {
+    return isEventHappen(eventId);
+});
+
+UI.registerHelper('getOrdersCount', function (eventId, status) {
+    if(!eventId) throw new Meteor.Error('не указан id события');
+    return getOrdersCount(eventId, status);
+});
+
+UI.registerHelper('getEventIdFromRoute', function () {
+    return Router.current().params._id;
 });

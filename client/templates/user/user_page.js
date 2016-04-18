@@ -3,7 +3,7 @@ Template.userPage.helpers({
         return Events.find({'owner._id':this._id}).count();
     },
     ordersReceivedTotalCount: function(){
-        var eventsIds = usersEventsIds(Meteor.userId());
+        var eventsIds = usersCreatedEventsIds(Meteor.userId());
         return Orders.find({eventId:{$in:eventsIds}}).count();
     }
 });

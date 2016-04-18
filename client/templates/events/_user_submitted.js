@@ -29,5 +29,5 @@ Template._userSubmitted.helpers({
         var userId = this._id;
         var eventId = Router.current().params._id;
         return getOrderStatus(eventId, userId) == orderStatuses.expects
-    }
+    },
 });

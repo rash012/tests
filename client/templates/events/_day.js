@@ -4,13 +4,14 @@ var getMonthReal = function (context) {
 var getYear = function (context) {
     return context.getFullYear();
 };
-var getDate = function (context) {
-    return context.getDate();
-};
 
+
+/**
+ * @this {Date}
+ */
 _dayHelpers = {
     day: function () {
-        return getDate(this);
+        return this.getDate()
     },
     month: function () {
         return getMonthReal(this);
@@ -19,17 +20,17 @@ _dayHelpers = {
         return getYear(this);
     },
     //events:function(){
-    //    return Events.find({date: formatDateToIso(getYear(),getMonth(),this.day)},{sort:{begin:1}});
+    //    return Events.find({date: formatDate.toIso(getYear(),getMonth(),this.day)},{sort:{begin:1}});
     //},
     eventsCount: function () {
         var types = getTypesFromQuery();
 
         if (types) {
             return Events.find({
-                date: formatDateToIso(getYear(this), getMonthReal(this), this.getDate()),
+                date: formatDate.toIso(getYear(this), getMonthReal(this), this.getDate()),
                 type: {$in: types}
             }).count();
-        } else return Events.find({date: formatDateToIso(getYear(this), getMonthReal(this), this.getDate())}).count();
+        } else return Events.find({date: formatDate.toIso(getYear(this), getMonthReal(this), this.getDate())}).count();
     },
     todayClass: function () {
         if (this.getDate() == getCurrentDateDay() && getMonthReal(this) == getCurrentMonth() && getYear(this) == getCurrentYear()) {
