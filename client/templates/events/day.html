@@ -1,6 +1,8 @@
 <template name='day'>
     <div class="page">
         <h4>События на {{date}}</h4>
+        <a href="{{pathFor 'monthCalendar' query=getQueryTypes}}">Календарь за {{monthName}}</a>
+        {{> _eventFilter}}
         <div class="events">
             {{#each socialEvents}}
                 {{> _event}}

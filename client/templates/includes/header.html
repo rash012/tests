@@ -8,15 +8,17 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand"
-               href="{{pathFor 'monthCalendar' month=currentMonthNumber year=currentYear}}">Соцсеть</a>
+               href="{{pathFor 'mainCalendar' month=currentMonthNumber year=currentYear}}">Соцсеть</a>
         </div>
         <div class="collapse navbar-collapse" id="navigation">
             <ul class="nav navbar-nav">
                 {{#if currentUser}}
-                <li><a href="{{pathFor 'createEvent'}}">Создать событие</a></li>
-                <li><a href="{{pathFor 'myEventOrders'}}">Поданные заявки</a></li>
-                <li><a href="{{pathFor 'myCreatedEvents'}}">Созданные мной события</a></li>
-                <li><a href="{{pathFor 'userPage' username=currentUser.username}}">Моя страница</a></li>
+                    <li><a href="{{pathFor 'createEvent'}}">Создать событие</a></li>
+                    <li><a href="{{pathFor 'myEventOrders'}}">Поданные заявки</a></li>
+                    <li><a href="{{pathFor 'myCreatedEvents'}}">Созданные мной события</a></li>
+                    <li><a href="{{pathFor 'monthCalendar' year=currentYear month=currentMonthNumber}}">Календарь
+                        событий за месяц</a></li>
+                    <li><a href="{{pathFor 'userPage' username=currentUser.username}}">Моя страница</a></li>
                 {{/if}}
             </ul>
             <ul class="nav navbar-nav navbar-right">

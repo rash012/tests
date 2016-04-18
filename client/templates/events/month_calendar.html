@@ -8,15 +8,7 @@
         </div>
         <!--<div><a href="{{pathFor 'monthPopular'}}">Популярные за месяц</a></div>-->
         <br>
-        <div class="filter form-group">
-            <label class="control-label" for="type">Тип событий</label>
-            <select name="type" id="type" class="form-control filter__input" required>
-                <option value="">все</option>
-                {{#each eventTypes}}
-                    <option value="{{this}}" {{select this}}>{{this}}</option>
-                {{/each}}
-            </select>
-        </div>
+        {{> _eventFilter}}
         {{#each days}}
             {{> _day}}
         {{/each}}
