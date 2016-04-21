@@ -10,6 +10,14 @@ Meteor.publish('orders', function () {
     return Orders.find();
 });
 
+Meteor.publish('reviews', function () {
+    return Reviews.find();
+});
+
+Meteor.publish('organizerVotes', function () {
+    return OrganizerVotes.find();
+});
+
 //заявки пользователей на событие, создателем которого является текущий пользователь
 // Meteor.publish('organizerUserOrders', function () {
 //     var currentUserId = this.userId;

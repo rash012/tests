@@ -1,9 +1,36 @@
 <template name="userPage">
     <div class="page">
-        <h4>Страница пользователя {{username}}</h4>
+        <h4>Страница пользователя {{user.username}}</h4>
         <div class="main">
             <div>Создано событий: {{eventsCount}}</div>
             <div>Всего получено заявок на события: {{ordersReceivedTotalCount}}</div>
+            {{#with user}}
+                <div>Рейтинг пользователя:
+                    {{#if isThisUser _id}}
+                        {{votes.rating}}
+                    {{else}}
+                        {{>votes}}
+                    {{/if}}
+                </div>
+            {{/with}}
         </div>
+        <h5>Отзывы о пользователе</h5>
+        {{#unless isThisUser user._id}}
+            <a class="cursor-pointer" id="write-user-review">Мой отзыв о пользователе</a>
+            <div id="user-review-wrap">
+                {{#with user}}
+                    {{>userReviewForm}}
+                {{/with}}
+            </div>
+        {{/unless}}
+
+        {{#if reviews}}
+            {{#each reviews}}
+                {{>_review}}
+            {{/each}}
+        {{else}}
+            <div class="block">Нет отзывов</div>
+        {{/if}}
+
     </div>
 </template>

@@ -1,6 +1,21 @@
 <template name="_userSubmitted">
     <div class="block">
         <span>Ник: <a href="{{pathFor 'userPage' username}}">{{username}}</a></span>
+        {{#if currentUser}}
+            {{#unless isThisUser _id}}
+                <span class="pull-right">
+                    {{>votes}}
+                </span>
+
+                <a class="pull-right cursor-pointer" id="write-user-review">Отзыв об участнике</a>
+
+                <div class="clearfix"></div>
+
+                <div id="user-review-wrap">
+                    {{>userReviewForm}}
+                </div>
+            {{/unless}}
+        {{/if}}
 
         {{#if isMyEvent getEventIdFromRoute}}
             {{#if isExpects}}
@@ -10,3 +25,4 @@
         {{/if}}
     </div>
 </template>
+

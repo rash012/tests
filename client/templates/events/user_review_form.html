@@ -1,0 +1,10 @@
+<template name="userReviewForm">
+    <form class="main form" id="user-review-form" style="display: none">
+        <div class="form-group">
+            <textarea name='user-review' class="form-control" placeholder="Отзыв о пользователе"
+                      minlength="3" maxlength="512" rows="3" required>{{review}}</textarea>
+        </div>
+        <input type="submit" id="save-user-review" value="Сохранить отзыв" class="btn btn-primary"/>
+        <input type="submit" id="remove-user-review" value="Удалить отзыв" class="btn btn-danger"/>
+    </form>
+</template>

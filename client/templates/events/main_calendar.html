@@ -1,5 +1,9 @@
 <template name="mainCalendar">
     <h4>Календарь событий на следующие 2 недели</h4>
+    <a href="{{pathFor 'monthCalendar' year=currentYear month=currentMonthNumber}}">Общий календарь
+        событий</a>
+    <br>
+    <br>
     {{> _eventFilter}}
         {{#each dates}}
             {{> _day}}

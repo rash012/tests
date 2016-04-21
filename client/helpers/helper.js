@@ -42,3 +42,7 @@ UI.registerHelper('getOrdersCount', function (eventId, status) {
 UI.registerHelper('getEventIdFromRoute', function () {
     return Router.current().params._id;
 });
+
+UI.registerHelper('isThisUser', function (userId) {
+    return isThisUser(userId);
+});

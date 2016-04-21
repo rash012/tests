@@ -22,7 +22,8 @@ Template._userSubmitted.events({
                 return throwError(error.reason);
             }
         });
-    }
+    },
+    
 });
 Template._userSubmitted.helpers({
     isExpects: function () {
