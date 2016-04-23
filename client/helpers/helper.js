@@ -46,3 +46,7 @@ UI.registerHelper('getEventIdFromRoute', function () {
 UI.registerHelper('isThisUser', function (userId) {
     return isThisUser(userId);
 });
+
+UI.registerHelper('isInSameStartedEventWithUser', function (votedUserId) {
+    return isInSameStartedEventWithUser(votedUserId);
+});

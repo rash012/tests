@@ -4,24 +4,24 @@
         <div class="main">
             <div>Создано событий: {{eventsCount}}</div>
             <div>Всего получено заявок на события: {{ordersReceivedTotalCount}}</div>
-            {{#with user}}
-                <div>Рейтинг пользователя:
-                    {{#if isThisUser _id}}
-                        {{votes.rating}}
-                    {{else}}
-                        {{>votes}}
-                    {{/if}}
-                </div>
-            {{/with}}
+                <!--{{#with user}}-->
+            <!--<div>Рейтинг пользователя:-->
+                <!--{{#if isThisUser _id}}-->
+                <!--{{votes.rating}}-->
+                    <!--{{else}}-->
+                <!--{{>votes}}-->
+                    <!--{{/if}}-->
+            <!--</div>-->
+                <!--{{/with}}-->
         </div>
         <h5>Отзывы о пользователе</h5>
         {{#unless isThisUser user._id}}
             <a class="cursor-pointer" id="write-user-review">Мой отзыв о пользователе</a>
-            <div id="user-review-wrap">
-                {{#with user}}
-                    {{>userReviewForm}}
-                {{/with}}
-            </div>
+
+            {{#with user}}
+                {{>userReviewForm}}
+            {{/with}}
+
         {{/unless}}
 
         {{#if reviews}}

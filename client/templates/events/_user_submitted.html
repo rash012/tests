@@ -3,24 +3,26 @@
         <span>Ник: <a href="{{pathFor 'userPage' username}}">{{username}}</a></span>
         {{#if currentUser}}
             {{#unless isThisUser _id}}
-                <span class="pull-right">
-                    {{>votes}}
-                </span>
+                <!--<span class="pull-right">-->
+                <!--{{>votes}}-->
+                <!--</span>-->
 
-                <a class="pull-right cursor-pointer" id="write-user-review">Отзыв об участнике</a>
+                <a class="pull-right cursor-pointer link-disable" id="write-user-review">Отзыв об участнике</a>
 
                 <div class="clearfix"></div>
 
-                <div id="user-review-wrap">
-                    {{>userReviewForm}}
-                </div>
+
+                {{>userReviewForm}}
+
             {{/unless}}
         {{/if}}
 
         {{#if isMyEvent getEventIdFromRoute}}
             {{#if isExpects}}
-                <input type="submit" value="Принять заявку" class="btn btn-primary pull-right" id="accept-order"/>
-                <input type="submit" value="Отклонить заявку" class="btn btn-danger pull-right" id="reject-order"/>
+                <div class="btn-group pull-right">
+                    <input type="submit" value="Принять заявку" class="btn btn-primary" id="accept-order"/>
+                    <input type="submit" value="Отклонить заявку" class="btn btn-danger" id="reject-order"/>
+                </div>
             {{/if}}
         {{/if}}
     </div>
