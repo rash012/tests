@@ -1,0 +1,28 @@
+<template name="shiftEvent">
+    <div class="page">
+        <h4>Перенос события <a href="{{pathFor 'event'}}">{{eventName}}</a></h4>
+        <form class="main form">
+            <div>Событие можно перенести за {{getEventDeadline}} часов до его начала и только один раз</div>
+            <br>
+            <div class="form-group">
+                <label class="control-label" for="date">Дата события</label>
+                <div class="controls">
+                    <input name="date" id="date" type="date" value="{{date}}" placeholder="" class="form-control" required autocomplete="off"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="begin">Время начала события</label>
+                <div class="controls">
+                    <input name="begin" id="begin" type="time" value="{{begin}}" placeholder="" class="form-control" required autocomplete="off"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="end">Время окончания события</label>
+                <div class="controls">
+                    <input name="end" id="end" type="time" value="{{end}}" placeholder="" class="form-control" required autocomplete="off"/>
+                </div>
+            </div>
+            <input type="submit" value="Перенести событие" class="btn btn-primary"/>
+        </form>
+    </div>
+</template>

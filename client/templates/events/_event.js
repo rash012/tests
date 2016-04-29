@@ -2,6 +2,9 @@ Template._event.helpers({
     isOrderSubmitted: function () {
         return !!Orders.findOne({userId: Meteor.userId(), eventId: this._id});
     },
+    shiftDisabledClass: function (eventId) {
+        if(isEventShifted(eventId)) return 'disabled';
+    }
     // ordersCount: function () {
     //     return getOrdersCount(this._id);
     // },
@@ -19,17 +22,14 @@ Template._event.events({
     'click #submit-order': function (e) {
         e.preventDefault();
 
-        var event = {
-            _id: this._id,
-            name: this.eventName
-        };
-        Meteor.call('insertOrder', event, function (error, result) {
+        var eventId = this._id;
+        Meteor.call('insertOrder', eventId, function (error, result) {
             if (error) {
                 return throwError(error.reason);
             }
             if (result) {
-                if (result.isMyEvent) alert('Вы не можете подать заявку на свое событие');
-                if (result.orderExists) alert('Заявка на это событие уже подана');
+                if (result.isOwner) throwError('Вы не можете подать заявку на свое событие');
+                if (result.orderExists) throwError('Заявка на это событие уже подана');
                 //else alert('Заявка успешно подана');
             }
         });
@@ -43,3 +43,4 @@ Template._event.events({
         });
     }
 });
+

@@ -2,10 +2,10 @@
     <h4>Событие {{eventName}}</h4>
     {{> _event}}
 
-    {{#if isMyEvent _id}}
+    {{#if isOwner _id}}
         {{>_usersSubmitted}}
         <br>
         <a href="{{pathFor 'eventRejectedOrders'}}">Отклонённые заявки ({{getOrdersCount _id 'rejected'}})</a>
     {{/if}}
-    <a href="{{pathFor 'eventMembers'}}">Список участников ({{getOrdersCount _id 'accepted'}})</a>
+    <a href="{{pathFor 'eventMembers'}}">Список участников ({{getMembersCount}})</a>
 </template>

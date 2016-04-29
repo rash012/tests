@@ -50,6 +50,10 @@ h5 {
   font-size: 16px;
 }
 
+.btn{
+  margin-right: 3px;
+}
+
 .grid-block {
   @extend %extend_1;
 }
@@ -214,7 +218,7 @@ body {
   }
 }
 
-.errors {
+.errors, .alerts {
   position: fixed;
   z-index: 10000;
   padding: 10px;
@@ -226,7 +230,7 @@ body {
 }
 
 .alert {
-  animation: fadeOut 2700ms ease-in 0s 1 forwards;
+  animation: fadeOut 4700ms ease-in 0s 1 forwards;
   width: 250px;
   float: right;
   clear: both;

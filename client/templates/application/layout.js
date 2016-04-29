@@ -12,3 +12,4 @@ Template.layout.events({
 
     },
 });
+

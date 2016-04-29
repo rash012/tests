@@ -17,8 +17,9 @@ UI.registerHelper('monthWithEnding', function (monthNumber) {
     return getMonthNameByNumber.withEnding(monthNumber);
 });
 
-UI.registerHelper('isMyEvent', function (eventId) {
-    return isMyEvent(eventId);
+UI.registerHelper('isOwner', function (eventId, userId) {
+    
+    return isOwner(eventId, userId);
 });
 
 UI.registerHelper('eventTypes', function () {
@@ -32,6 +33,10 @@ UI.registerHelper('getQueryTypes', function () {
 
 UI.registerHelper('isEventHappen', function (eventId) {
     return isEventHappen(eventId);
+});
+
+UI.registerHelper('isEventStarted', function (eventId) {
+    return isEventStarted(eventId);
 });
 
 UI.registerHelper('getOrdersCount', function (eventId, status) {
@@ -49,4 +54,17 @@ UI.registerHelper('isThisUser', function (userId) {
 
 UI.registerHelper('isInSameStartedEventWithUser', function (votedUserId) {
     return isInSameStartedEventWithUser(votedUserId);
+});
+
+UI.registerHelper('getEventDeadline', function () {
+    return eventDeadline;
+});
+
+UI.registerHelper('isEventShifted', function (eventId) {
+    return isEventShifted();
+});
+
+
+Template.onRendered(function () {
+    $('[data-toggle="tooltip"]').tooltip();
 });

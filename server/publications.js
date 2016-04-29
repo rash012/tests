@@ -22,7 +22,7 @@ Meteor.publish('organizerVotes', function () {
 // Meteor.publish('organizerUserOrders', function () {
 //     var currentUserId = this.userId;
 //     if (currentUserId) {
-//         var myEventIds = usersCreatedEventsIds(currentUserId);
+//         var myEventIds = currentUserCreatedEventsIds(currentUserId);
 //         return Orders.find({$or:[{eventId: {$in: myEventIds}},{userId:currentUserId}]});
 //     }
 //     else return [];

@@ -6,7 +6,14 @@ Template.userReviewForm.events({
 
         var review = $('textarea[name=user-review]').val();
 
-        Meteor.call('saveUserReview', this._id, review);
+        Meteor.call('saveUserReview', this._id, review,function (error, result) {
+            if (error) {
+                return throwError(error.reason);
+            }
+            if (result) {
+                return showAlert('Отзыв сохранен');
+            }
+        });
 
         slideUpForm(target);
     },
@@ -15,7 +22,14 @@ Template.userReviewForm.events({
 
         var target = e.currentTarget;
 
-        Meteor.call('removeUserReview', this._id);
+        Meteor.call('removeUserReview', this._id, function (error, result) {
+            if (error) {
+                return throwError(error.reason);
+            }
+            if (result) {
+                return showAlert('Отзыв удалён');
+            }
+        });
 
         slideUpForm(target);
     },

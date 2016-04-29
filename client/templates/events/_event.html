@@ -1,7 +1,7 @@
 <template name='_event'>
     <a href="{{pathFor 'event'}}" class="block event__wrap link-non-decor">
         <div class="block__content">
-            {{#if isMyEvent _id}}
+            {{#if isOwner _id}}
                 <div><b>мое событие</b></div>
             {{/if}}
             {{#if isEventHappen _id}}
@@ -14,15 +14,25 @@
             <span class="">Дата: {{formatDateToLocal date}}</span>
             <span class="">Время начала: {{begin}}</span>
             <span class="">Время окончания: {{end}}</span>
+            <span class="">Минимальное количество участников: {{membersMinimum}}</span>
+            <span class="">Максимальное количество участников: {{membersMaximum}}</span>
             <span class="">Заявок подано: {{getOrdersCount _id}}</span>
             <span class="">Заявок принято: {{getOrdersCount _id 'accepted'}}</span>
             <!--<span class="">Заявок отклонено: {{getOrdersCount _id 'rejected'}}</span>-->
             <!--<span class="">Ожидающих заявок: {{getOrdersCount _id 'expects'}}</span>-->
             <br>
             <br>
+            {{#if isOwner _id}}
+                {{#unless isEventStarted _id}}
+                    <a href="{{pathFor 'editEvent'}}" class="btn btn-primary" id="edit-event">Редактировать событие
+                    </a><a href="{{#unless shiftDisabledClass _id}}{{pathFor 'shiftEvent'}}{{/unless}}"
+                           class="btn btn-primary {{shiftDisabledClass _id}}">Перенести событие
+                </a><input type="submit" value="Отменить событие" class="btn btn-danger" id="cancel-event">
+                {{/unless}}
+            {{/if}}
             {{#if currentUser}}
                 {{#unless isEventHappen _id}}
-                    {{#unless isMyEvent _id}}
+                    {{#unless isOwner _id}}
                         {{#if isOrderSubmitted}}
                             <input type="submit" value="Отменить заявку" class="btn btn-danger" id="cancel-order"/>
                         {{else}}
@@ -31,6 +41,7 @@
                     {{/unless}}
                 {{/unless}}
             {{/if}}
+
         </div>
     </a>
 </template>

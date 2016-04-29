@@ -1,5 +1,5 @@
 <template name="eventMembers">
-    <h4>Событие <a href="{{pathFor 'event' _id=eventId}}">{{eventName}}</a> - список участников</h4>
+    <h4>Список участников события <a href="{{pathFor 'event' _id=eventId}}">{{eventName}}</a></h4>
     {{#each users}}
         {{> _userSubmitted}}
     {{/each}}

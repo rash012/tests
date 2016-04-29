@@ -11,6 +11,8 @@ Template.createEvent.events({
             date: $(e.target).find('[name=date]').val(),
             begin: $(e.target).find('[name=begin]').val(),
             end: $(e.target).find('[name=end]').val(),
+            membersMinimum: +$(e.target).find('[name=members-minimum]').val(),
+            membersMaximum: +$(e.target).find('[name=members-maximum]').val(),
         };
 
         Meteor.call('insertEvent', event, function (error, result) {
@@ -18,9 +20,12 @@ Template.createEvent.events({
                 return throwError(error.reason);
             }
             if (result) {
-                alert('Событие успешно добавлено');
                 //$('form').trigger('reset');
-                Router.go('event',{_id:result._id});
+                if (result.wasHappenEventDeadline) {
+                    throwError('Событие можно создавать минимум за ' + eventDeadline + ' часов до начала');
+                }
+                Router.go('event', {_id: result.eventId});
+                showAlert('Событие успешно добавлено');
             }
         });
     }

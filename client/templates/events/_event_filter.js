@@ -16,5 +16,5 @@ Template._eventFilter.helpers({
             return 'selected';
         }
         return '';
-    }
+    },
 });
