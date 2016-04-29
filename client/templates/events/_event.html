@@ -27,7 +27,8 @@
                     <a href="{{pathFor 'editEvent'}}" class="btn btn-primary" id="edit-event">Редактировать событие
                     </a><a href="{{#unless shiftDisabledClass _id}}{{pathFor 'shiftEvent'}}{{/unless}}"
                            class="btn btn-primary {{shiftDisabledClass _id}}">Перенести событие
-                </a><input type="submit" value="Отменить событие" class="btn btn-danger" id="cancel-event">
+                </a><input type="submit" value="Отменить событие" class="btn btn-danger" id="cancel-event"
+                           data-toggle="confirmation" title="Вы действительно хотите отменить событие?">
                 {{/unless}}
             {{/if}}
             {{#if currentUser}}

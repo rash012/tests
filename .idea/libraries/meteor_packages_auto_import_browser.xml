@@ -2,7 +2,6 @@
   <library name="meteor-packages-auto-import-browser" type="javaScript">
     <properties>
       <sourceFilesUrls>
-        <item url="file://$USER_HOME$/.meteor/packages/fortawesome_fontawesome/4.5.0/web.browser/upstream/css/font-awesome.css" />
         <item url="file://$USER_HOME$/.meteor/packages/modules/0.6.1/web.browser/install-packages.js" />
         <item url="file://$USER_HOME$/.meteor/packages/modules/0.6.1/web.browser/process.js" />
         <item url="file://$USER_HOME$/.meteor/packages/modules/0.6.1/web.browser/stubs.js" />
@@ -73,6 +72,7 @@
         <item url="file://$USER_HOME$/.meteor/packages/ddp-common/1.2.5/web.browser/namespace.js" />
         <item url="file://$USER_HOME$/.meteor/packages/ddp-common/1.2.5/web.browser/utils.js" />
         <item url="file://$USER_HOME$/.meteor/packages/ddp-common/1.2.5/web.browser/heartbeat.js" />
+        <item url="file://$USER_HOME$/.meteor/packages/hinas_meteor-bootstrap-confirmation/0.9.0/web.browser/packages/hinas:meteor-bootstrap-confirmation.js" />
         <item url="file://$USER_HOME$/.meteor/packages/ddp-server/1.2.6/web.browser/livedata_server.js" />
         <item url="file://$USER_HOME$/.meteor/packages/ddp-server/1.2.6/web.browser/stream_server.js" />
         <item url="file://$USER_HOME$/.meteor/packages/ian_accounts-ui-bootstrap-3/1.2.89/web.browser/i18n.js" />
@@ -290,7 +290,6 @@
       </sourceFilesUrls>
     </properties>
     <CLASSES>
-      <root url="file://$USER_HOME$/.meteor/packages/fortawesome_fontawesome/4.5.0/web.browser/upstream/css/font-awesome.css" />
       <root url="file://$USER_HOME$/.meteor/packages/modules/0.6.1/web.browser/install-packages.js" />
       <root url="file://$USER_HOME$/.meteor/packages/modules/0.6.1/web.browser/process.js" />
       <root url="file://$USER_HOME$/.meteor/packages/modules/0.6.1/web.browser/stubs.js" />
@@ -361,6 +360,7 @@
       <root url="file://$USER_HOME$/.meteor/packages/ddp-common/1.2.5/web.browser/namespace.js" />
       <root url="file://$USER_HOME$/.meteor/packages/ddp-common/1.2.5/web.browser/utils.js" />
       <root url="file://$USER_HOME$/.meteor/packages/ddp-common/1.2.5/web.browser/heartbeat.js" />
+      <root url="file://$USER_HOME$/.meteor/packages/hinas_meteor-bootstrap-confirmation/0.9.0/web.browser/packages/hinas:meteor-bootstrap-confirmation.js" />
       <root url="file://$USER_HOME$/.meteor/packages/ddp-server/1.2.6/web.browser/livedata_server.js" />
       <root url="file://$USER_HOME$/.meteor/packages/ddp-server/1.2.6/web.browser/stream_server.js" />
       <root url="file://$USER_HOME$/.meteor/packages/ian_accounts-ui-bootstrap-3/1.2.89/web.browser/i18n.js" />

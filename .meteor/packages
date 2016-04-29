@@ -33,5 +33,6 @@ cfs:standard-packages
 standard-minifier-css
 standard-minifier-js
 hitchcott:app-dump
-fortawesome:fontawesome
+#fortawesome:fontawesome
 aldeed:template-extension
+hinas:meteor-bootstrap-confirmation

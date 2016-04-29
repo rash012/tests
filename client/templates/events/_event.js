@@ -4,7 +4,7 @@ Template._event.helpers({
     },
     shiftDisabledClass: function (eventId) {
         if(isEventShifted(eventId)) return 'disabled';
-    }
+    },
     // ordersCount: function () {
     //     return getOrdersCount(this._id);
     // },
@@ -41,6 +41,21 @@ Template._event.events({
             if (error)return throwError(error.reason);
             //else alert('Заявка отменена');
         });
-    }
+    },
+});
+
+Template._event.onRendered(function () {
+    var eventId = this.data._id;
+    $('#cancel-event').confirmation({
+        btnOkLabel:'<i class="icon-ok-sign icon-white"></i> Да',
+        btnCancelLabel:'<i class="icon-remove-sign"></i> Нет',
+        placement: 'top',
+        onConfirm: function () {
+            Meteor.call('cancelEvent', eventId, function (error, result) {
+                if (error)return throwError(error.reason);
+                else Router.go('myCreatedEvents');
+            });
+        }
+    })
 });
 

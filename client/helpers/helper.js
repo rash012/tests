@@ -67,4 +67,9 @@ UI.registerHelper('isEventShifted', function (eventId) {
 
 Template.onRendered(function () {
     $('[data-toggle="tooltip"]').tooltip();
+    // $('[data-toggle="confirmation"]').confirmation({
+    //     btnOkLabel:'<i class="icon-ok-sign icon-white"></i> Да',
+    //     btnCancelLabel:'<i class="icon-remove-sign"></i> Нет',
+    //     placement: 'top',
+    // })
 });

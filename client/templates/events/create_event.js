@@ -20,9 +20,9 @@ Template.createEvent.events({
                 return throwError(error.reason);
             }
             if (result) {
-                //$('form').trigger('reset');
                 if (result.wasHappenEventDeadline) {
                     throwError('Событие можно создавать минимум за ' + eventDeadline + ' часов до начала');
+                    return;
                 }
                 Router.go('event', {_id: result.eventId});
                 showAlert('Событие успешно добавлено');
