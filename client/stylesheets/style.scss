@@ -122,6 +122,13 @@ h5 {
   }
 }
 
+.hint{
+  border-bottom: 1px dashed;
+  cursor: pointer;
+  font-weight: bold;
+  @include user-select('none');
+}
+
 h3.popover-title{
   font-size: 14px;
 }

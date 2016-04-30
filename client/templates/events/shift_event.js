@@ -15,7 +15,7 @@ Template.shiftEvent.events({
                 return throwError(error.reason);
             }
             if (result) {
-                if(result.alreadyShifted) {
+                if (result.alreadyShifted) {
                     throwError('Событие можно перенести только один раз');
                     return
                 }
@@ -24,4 +24,10 @@ Template.shiftEvent.events({
             }
         });
     }
+});
+
+Template.shiftEvent.helpers({
+    hint: 'Созданное событие можно перенести 1 раз, не менее чем за ' + eventDeadline + ' часов до его начала, в профиле создателя\
+        события будет отображено количество перенесённых событий. Участник перенесённого события сможет свободно\
+        отказаться от участия в нём или не явиться, в его профиле отказ или неявка учтены не будут.'
 });

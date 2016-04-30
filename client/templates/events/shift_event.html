@@ -2,10 +2,15 @@
     <div class="page">
         <h4>Перенос события <a href="{{pathFor 'event'}}">{{eventName}}</a></h4>
         <form class="main form">
-            <div>Созданное событие можно перенести 1 раз, не менее чем за {{getEventDeadline}} часов до его начала, в профиле создателя
-                события будет отображено количество перенесённых событий. Участник перенесённого события сможет свободно
-                отказаться от участия в нём или не явиться, в его профиле отказ или неявка учтены не будут.
-            </div>
+
+            <span class="hint" data-toggle="modal" data-target="#modal">Подсказка</span>
+            <br>
+
+            {{#with hint}}
+                {{>modal}}
+            {{/with}}
+
+
             <br>
             <div class="form-group">
                 <label class="control-label" for="date">Дата события</label>
