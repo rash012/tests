@@ -22,6 +22,11 @@ Meteor.publish('organizerVotes', function () {
     return OrganizerVotes.find();
 });
 
+//todo спрятать лишнее
+Meteor.publish('votes', function () {
+    return Votes.find();
+});
+
 //заявки пользователей на событие, создателем которого является текущий пользователь
 // Meteor.publish('organizerUserOrders', function () {
 //     var currentUserId = this.userId;

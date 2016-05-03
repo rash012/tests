@@ -2,10 +2,7 @@
     <span class="votes">
         <a href="" class="votes__vote-up{{votedClass 'up'}}" id="vote-up"></a>
         <div class="votes__rating">
-            {{#if votes.rating}}
-                {{votes.rating}}
-            {{else}}0
-            {{/if}}
+            +{{votesUpCount _id}} -{{votesDownCount _id}}
         </div>
         <a href="" class="votes__vote-down{{votedClass 'down'}}" id="vote-down"></a>
     </span>

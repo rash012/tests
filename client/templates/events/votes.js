@@ -2,39 +2,53 @@ Template.votes.events({
     'click #vote-up': function (e) {
         e.preventDefault();
 
-        if(!isInSameStartedEventWithUser(this._id)){
+        var eventId = Router.current().params._id;
+
+        if (!isInSameStartedEventWithUser(this._id)) {
             throwError('Вы не участвовали ни в одном событии с данным пользователем');
             return;
         }
-        Meteor.call('voteUp', this._id);
+        Meteor.call('voteUp', this._id, eventId);
     },
     'click #vote-down': function (e) {
         e.preventDefault();
 
-        if(!isInSameStartedEventWithUser(this._id)){
+        var eventId = Router.current().params._id;
+
+        if (!isInSameStartedEventWithUser(this._id)) {
             throwError('Вы не участвовали ни в одном событии с данным пользователем');
             return;
         }
 
-        Meteor.call('voteDown', this._id);
+        Meteor.call('voteDown', this._id, eventId);
     },
 });
 
 Template.votes.helpers({
     votedClass: function (direction) {
         var userId = Meteor.userId();
-
-        if (!this.votes) return '';
+        var eventId = Router.current().params._id;
 
         if (direction === 'up') {
-            if (userId && _.include(this.votes.upvoters, userId)) {
+            if (isVotedUp(eventId, this._id, userId)) {
                 return '_voted';
             }
         } else if (direction === 'down') {
 
-            if (userId && _.include(this.votes.downvoters, userId)) {
+            if (isVotedDown(eventId, this._id, userId)) {
                 return '_voted';
             }
         }
+    },
+    votesUpCount: function (userId) {
+        var votes = Votes.find({isPublished: true}).fetch();
+        var userVotes = _.where(votes, {votedUserId: userId, up: 1});
+
+        return _.size(userVotes);
+    },
+    votesDownCount: function (userId) {
+        var votes = Votes.find({isPublished: true}).fetch();
+        var userVotes = _.where(votes, {votedUserId: userId, down: 1});
+        return _.size(userVotes);
     }
 });

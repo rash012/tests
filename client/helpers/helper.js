@@ -65,6 +65,8 @@ UI.registerHelper('isEventShifted', function (eventId) {
 });
 
 
+
+
 Template.onRendered(function () {
     $('[data-toggle="tooltip"]').tooltip();
     $('[data-toggle="popover"]').popover();
