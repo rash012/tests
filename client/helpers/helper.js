@@ -56,12 +56,16 @@ UI.registerHelper('isInSameStartedEventWithUser', function (votedUserId) {
     return isInSameStartedEventWithUser(votedUserId);
 });
 
-UI.registerHelper('getEventDeadline', function () {
-    return eventDeadline;
+UI.registerHelper('getEventCreateDeadline', function () {
+    return eventCreateDeadline;
 });
 
 UI.registerHelper('isEventShifted', function (eventId) {
-    return isEventShifted();
+    return isEventShifted(eventId);
+});
+
+UI.registerHelper('wasHappenAcceptOrderDeadline', function (eventId) {
+    return wasHappenAcceptOrderDeadline.fromEventId(eventId);
 });
 
 

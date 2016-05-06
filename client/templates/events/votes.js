@@ -41,13 +41,12 @@ Template.votes.helpers({
         }
     },
     votesUpCount: function (userId) {
-        var votes = Votes.find({isPublished: true}).fetch();
+        var votes = Votes.find().fetch();
         var userVotes = _.where(votes, {votedUserId: userId, up: 1});
-
         return _.size(userVotes);
     },
     votesDownCount: function (userId) {
-        var votes = Votes.find({isPublished: true}).fetch();
+        var votes = Votes.find().fetch();
         var userVotes = _.where(votes, {votedUserId: userId, down: 1});
         return _.size(userVotes);
     }

@@ -1,0 +1,14 @@
+<template name="notifications">
+    <h4>Уведомления</h4>
+    {{#each notifications}}
+        {{>notification}}
+    {{/each}}
+</template>
+
+<template name="notification">
+    <div class="block">
+        {{type}}
+        {{eventId}}
+        {{dateTime}}
+    </div>
+</template>

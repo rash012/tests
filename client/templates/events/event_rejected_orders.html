@@ -1,6 +1,10 @@
 <template name="eventRejectedOrders">
     <h4>Событие <a href="{{pathFor 'event' _id=eventId}}">{{eventName}}</a> - отклоненные заявки</h4>
-    {{# each users}}
+
+    {{#each users}}
         {{> _userSubmitted}}
     {{/each}}
+    {{#unless users}}
+        нет отклонённых заявок
+    {{/unless}}
 </template>

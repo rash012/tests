@@ -19,6 +19,10 @@ Template.shiftEvent.events({
                     throwError('Событие можно перенести только один раз');
                     return
                 }
+                if (result.wasHappenEventCreateDeadline) {
+                    throwError('Событие можно перенести минимум за ' + eventCreateDeadline + ' часов до начала');
+                    return;
+                }
                 Router.go('event', {_id: result.eventId});
                 showAlert('Событие успешно перенесено');
             }
@@ -27,7 +31,7 @@ Template.shiftEvent.events({
 });
 
 Template.shiftEvent.helpers({
-    hint: 'Созданное событие можно перенести 1 раз, не менее чем за ' + eventDeadline + ' часов до его начала, в профиле создателя\
+    hint: 'Созданное событие можно перенести 1 раз, не менее чем за ' + eventCreateDeadline + ' часов до его начала, в профиле создателя\
         события будет отображено количество перенесённых событий. Участник перенесённого события сможет свободно\
         отказаться от участия в нём или не явиться, в его профиле отказ или неявка учтены не будут.'
 });

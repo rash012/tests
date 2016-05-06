@@ -22,6 +22,10 @@ Meteor.publish('organizerVotes', function () {
     return OrganizerVotes.find();
 });
 
+Meteor.publish('notifications', function () {
+    return Notifications.find();
+});
+
 //todo спрятать лишнее
 Meteor.publish('votes', function () {
     return Votes.find();
